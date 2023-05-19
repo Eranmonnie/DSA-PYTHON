@@ -52,7 +52,7 @@ class double_linked_list:
             print ("Error : 'getindex' Index out of range") 
             return
          
-        while True:
+        while cur:
             if valindex == val:
                 return cur.data
             cur = cur.next
@@ -66,31 +66,27 @@ class double_linked_list:
             print ("Error 'erase' index out of range")
             return 1
         
-        while cur.next != None:
+        while cur:
             #current node 
             curnode = cur
             #traverse to the node to delete 
             cur = cur.next
             
-
             if eraseindex == val:
 
                 #if deleting last node 
                 if curnode.next == None:
                     curnode.first.next = None
-                    print('last node')
-                    return 'error'
-                   
-                   
+                    return 1   
                 
                 #if we are deleting the first node 
                 if curnode.first == None:
                     self.head = cur
                     return 1
                 
-                #that previous nodes end will now be equal to the next of the curr.next initiated which is the next object
+                #else the previous nodes end will now be equal to the cur initiated which is the next object
                 curnode.first.next = cur
-                cur.first = curnode.first
+                cur.first = curnode
             eraseindex+=1
 
      #add an append at index function    
@@ -98,6 +94,7 @@ class double_linked_list:
 
 list = double_linked_list()
 list.append('feranmi')
+
 list.append('ajkjlnklnala')
 list.append('ajala')
 list.append('ajala')
@@ -106,10 +103,10 @@ list.append('eranmonnie')
 print(list.length())
 print(list.getIndex(3))
 print(list.display())
-print(list.remove(5))
+list.remove(4)
 print(list.display())
 
-#  remove index one step out of place 
+#  can delete last node now  
 
 
 
