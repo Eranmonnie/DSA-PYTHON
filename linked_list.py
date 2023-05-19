@@ -62,7 +62,7 @@ class linked_list:
             
             #if we are deleting the first node 
             if lastnode.next == None:
-                lastnode.next = None
+                self.head = cur
                 return 1
             
             if eraseindex == val:
@@ -70,6 +70,7 @@ class linked_list:
                 if cur.next == None:
                      lastnode.next = None
                      return 1
+                
                 #that previous nodes end will now be equal to the next of the curr.next initiated which is the next object
                 lastnode.next = cur.next
             eraseindex+=1
