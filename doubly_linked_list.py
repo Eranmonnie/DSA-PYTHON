@@ -68,25 +68,26 @@ class double_linked_list:
             return 
         while True:
             #store last node 
-            lastnode = cur
+            curnode = cur
             #traverse to the node to delete 
-            cur = cur.next
-            
-            #if we are deleting the first node 
-            if lastnode.next == None:
-                lastnode.next = None
-                return 1
-            
-            #for last node deletion
+            nextnode = cur.next
+
             if eraseindex == val:
-                if cur.next == None:
-                    lastnode.next = None
-    
+
+                #if deleting last node 
+                if curnode.next == None:
+                    curnode.first.next = None
                     return 1
+                
+                #if we are deleting the first node 
+                if curnode.first == None:
+                    self.head = nextnode
+                    return 1
+                
                 #that previous nodes end will now be equal to the next of the curr.next initiated which is the next object
-                if cur.next.first != None:
-                    cur.next.first = lastnode
-                    lastnode.next = cur.next
+                curnode.first.next = nextnode
+                nextnode.first = curnode
+            
             eraseindex+=1
 
      #add an append at index function    
@@ -105,7 +106,7 @@ print(list.getIndex(1))
 list.remove(1)
 print(list.display())
 
-#problems with append and remove 
+#  remove index one step out of place 
 
 
 
