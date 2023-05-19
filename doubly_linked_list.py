@@ -12,8 +12,6 @@ class double_linked_list:
     #appends to the end of the linked list
     def append(self, data):
         
-        
-
         if self.head == None:
             new_node = node(data)
             self.head = new_node
@@ -32,8 +30,8 @@ class double_linked_list:
     def length(self):
         cur = self.head
         append = 0
-        while cur.next != None:
-            cur = cur.next
+        while cur:
+            cur = cur.next 
             append+=1
         return append
     
@@ -63,31 +61,36 @@ class double_linked_list:
     def remove(self, val):
         eraseindex = 0
         cur = self.head
-        if val>= self.length():
+
+        if val > self.length():
             print ("Error 'erase' index out of range")
-            return 
-        while True:
-            #store last node 
+            return 1
+        
+        while cur.next != None:
+            #current node 
             curnode = cur
             #traverse to the node to delete 
-            nextnode = cur.next
+            cur = cur.next
+            
 
             if eraseindex == val:
 
                 #if deleting last node 
                 if curnode.next == None:
                     curnode.first.next = None
-                    return 1
+                    print('last node')
+                    return 'error'
+                   
+                   
                 
                 #if we are deleting the first node 
                 if curnode.first == None:
-                    self.head = nextnode
+                    self.head = cur
                     return 1
                 
                 #that previous nodes end will now be equal to the next of the curr.next initiated which is the next object
-                curnode.first.next = nextnode
-                nextnode.first = curnode
-            
+                curnode.first.next = cur
+                cur.first = curnode.first
             eraseindex+=1
 
      #add an append at index function    
@@ -101,9 +104,9 @@ list.append('ajala')
 list.append('ajala')
 list.append('eranmonnie')
 print(list.length())
+print(list.getIndex(3))
 print(list.display())
-print(list.getIndex(1))
-list.remove(1)
+print(list.remove(5))
 print(list.display())
 
 #  remove index one step out of place 
