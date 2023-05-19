@@ -11,17 +11,22 @@ class double_linked_list:
 
     #appends to the end of the linked list
     def append(self, data):
-        new_node = node(data)
-        cur = self.head
+        
+        
 
         if self.head == None:
+            new_node = node(data)
             self.head = new_node
+            new_node.first = None
             
         else:
+            cur = self.head
+            new_node = node(data)
             while cur.next !=None:
                 cur = cur.next
             cur.next = new_node
             new_node.first = cur
+            new_node.next = None
             
     #get lenght of linked list 
     def length(self):
@@ -36,7 +41,7 @@ class double_linked_list:
     def display(self):
         elements = []
         cur = self.head
-        while cur.next != None:
+        while cur:
             elements.append(cur.data)
             cur = cur.next
         return elements
@@ -66,7 +71,8 @@ class double_linked_list:
             lastnode = cur
             #traverse to the node to delete 
             cur = cur.next
-             #if we are deleting the first node 
+            
+            #if we are deleting the first node 
             if lastnode.next == None:
                 lastnode.next = None
                 return 1
