@@ -53,16 +53,17 @@ class linked_list:
         cur = self.head
         if val>= self.length():
             print ("Error 'erase' index out of range")
-            return 
+            return 1
+        
         while True:
             #store last node 
             lastnode = cur
             #traverse to the node to delete 
             cur = cur.next
             
-            #if we are deleting the first node 
+            #if we are deleting the first node s
             if lastnode.next == None:
-                self.head = cur
+                lastnode.next = cur
                 return 1
             
             if eraseindex == val:
@@ -73,6 +74,8 @@ class linked_list:
                 
                 #that previous nodes end will now be equal to the next of the curr.next initiated which is the next object
                 lastnode.next = cur.next
+                return 1  
+            
             eraseindex+=1
 
      #add an append at index function    

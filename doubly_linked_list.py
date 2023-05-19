@@ -66,7 +66,7 @@ class double_linked_list:
             print ("Error 'erase' index out of range")
             return 1
         
-        while cur:
+        while True:
             #current node 
             curnode = cur
             #traverse to the node to delete 
@@ -87,6 +87,7 @@ class double_linked_list:
                 #else the previous nodes end will now be equal to the cur initiated which is the next object
                 curnode.first.next = cur
                 cur.first = curnode
+                return 1
             eraseindex+=1
 
      #add an append at index function    
