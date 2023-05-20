@@ -40,7 +40,6 @@ class Queue:
         while cur.next != None:
             prev = cur
             cur = cur.next
-            print(prev.data, cur.data)
         self.head.next = prev
         prev.next = None
         return 1
