@@ -93,6 +93,6 @@ list.remove(2)
 print(list.display())
 
 
-
+#data in a linked list can be acdessed via recursion also  
 
     
