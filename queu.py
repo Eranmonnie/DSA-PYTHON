@@ -14,7 +14,7 @@ class Stack:
         if self.head.data == None:
             self.head.data = new_node
 
-        #if not empty have a copy of head make head.data equal to new_node and make the new head.next equal to the copy of the previous head.data  
+        #if not empty have a copy of head make head.data equal to new_node and make the new head.data.next equal to the copy of the previous head.data  
         else:
             cur = self.head 
             self.head.data = new_node
