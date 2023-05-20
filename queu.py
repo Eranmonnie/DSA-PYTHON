@@ -40,16 +40,16 @@ class Queue:
     
     def dleteRight(self):
         cur = self.head.data
-        while cur.next != None:
-            prev = cur
-            cur = cur.next
 
         if self.head.data.next:
             self.head.next = prev
             prev.next = None
             return 1
-        else:
-            self.head.data = None
+        
+        while cur.next != None:
+            prev = cur
+            cur = cur.next
+        self.head.data = None
 
 
     def length(self):
@@ -86,7 +86,7 @@ stack.add(1)
 
 print(stack.display())
 
-stack.dleteLeft()
+stack.dleteRight()
 print(stack.display())
 
 
