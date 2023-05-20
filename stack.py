@@ -67,4 +67,4 @@ print(stack.length())
 print(stack.index(0))
 
 
-#add pop length display  
+#add pop length display index all work
