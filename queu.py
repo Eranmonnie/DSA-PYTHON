@@ -3,7 +3,7 @@ class node:
         self.data = data
         self.next = None
 
-class Stack:
+class Queue:
     def __init__(self):
         self.head = node()
 
@@ -16,9 +16,9 @@ class Stack:
 
         #if not empty have a copy of head make head.data equal to new_node and make the new head.data.next equal to the copy of the previous head.data  
         else:
-            cur = self.head 
+            cur = self.head.data
             self.head.data = new_node
-            new_node.next = cur.data 
+            new_node.next = cur
 
         # next check if head.next is filled if so return
         if self.head.next:
@@ -28,53 +28,68 @@ class Stack:
         else:
             self.head.next = new_node
             return 1
-
-
-#     def pop(self):
-#         if self.head.next:
-#             #get next node then make that the first node 
-#             self.head = self.head.next 
-#             return 1
-#         self.head = node()
-
-#     def length(self):
-#         cur = self.head
-#         append = 0
-#         while cur:
-#             append+=1
-#             cur = cur.next
-#         return append
-
-#     def display(self):
-#         elements = []
-#         cur = self.head
-#         while cur:
-#             elements.append(cur.data)
-#             cur = cur.next
-#         return elements
+        
+    def dleteLeft(self):
+        cur = self.head.data
+        next = cur.next
+        self.head.data = next
+        return 1
     
-#     def index(self, data):
-#         index = 0
-#         cur = self.head
-#         if data > self.length():
-#             print("Error 'index' out of range at ",data )
-
-#         while True:
-#             if data == index:
-#                 return cur.data
-#             cur = cur.next
-#             index +=1 
+    def dleteRight(self):
+        cur = self.head.data
+        while cur.next != None:
+            prev = cur
+            cur = cur.next
+            print(prev.data, cur.data)
+        self.head.next = prev
+        prev.next = None
+        return 1
 
 
-# stack = Stack()
-# stack.add(1)
-# stack.add(2)
-# stack.add(3)
-# print(stack.display())
-# stack.pop()
-# print(stack.display())
-# print(stack.length())
-# print(stack.index(0))
+    def length(self):
+        cur = self.head.data
+        append = 0
+        while cur:
+            append+=1
+            cur = cur.next
+        return append
+
+    def display(self):
+        elements = []
+        cur = self.head.data
+        while cur != None:
+            elements.append(cur.data)
+            cur = cur.next
+        return elements
+    
+    def index(self, data):
+        index = 0
+        cur = self.head.data
+        if data > self.length():
+            print("Error 'index' out of range at ",data )
+
+        while True:
+            if data == index:
+                return cur.data
+            cur = cur.next
+            index +=1 
+
+
+stack = Queue()
+stack.add(1)
+stack.add(2)
+stack.add(3)
+stack.add(4)
+stack.add(5)
+stack.add(6)
+print(stack.display())
+stack.dleteLeft()
+print(stack.display())
+stack.dleteRight()
+print(stack.display())
+print(stack.length())
+print(stack.index(0))
+
 
 
 # #add pop length display index all work
