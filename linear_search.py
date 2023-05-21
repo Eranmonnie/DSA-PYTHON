@@ -1,6 +1,10 @@
 class linear_search:
     def __init__(self) :
-        self.arr = [1,2,3,4,5]
+        self.arr = [1,2,3,4,5] #so i wont populate the array 
+
+    def add(self,val):
+        self.arr.append(val)
+        return 0
 
     def search(self,val):
         x = 0
